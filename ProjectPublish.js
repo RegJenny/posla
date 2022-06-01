@@ -1,0 +1,172 @@
+import React, {useState} from 'react';
+import AccountSidebar from '../components/AccountSidebar';
+import NavTabProjectMgt from '../components/NavTabProjectMgt';
+
+
+const ProjectPublish = () =>{
+    const [error, setError] = useState("");
+    const [display, setDisplay] = useState("");
+    var myHeaders = new Headers();
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Authorization", "Bearer 37|6I38pJScQro7GN881QKKiwQhzWEvsYh8aZIZbAWb");
+
+const handleSubmit =(e)=>{
+        e.preventDefault() 
+
+var formdata = new FormData();
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: formdata,
+  redirect: 'follow'
+};
+
+fetch("https://jbuit.com/api/contact/", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+}
+	return(
+		<>
+	<div class="container">
+        <div class="row">
+            <div class="d-none d-md-block col-md-4 col-lg-3">
+
+                <AccountSidebar/>
+                
+            </div>
+            
+            <div class="col-12 col-md-8 col-lg-9">
+                
+                <div aria-label="breadcrumb" class="details-page-breadcrumb mb-10">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/account">Account</a></li>
+                        <li class="breadcrumb-item"><a href="/account/projects">Projects</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Project</li>
+                    </ol>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">
+                        Edit Project
+                    </div>
+                    <div>
+                        
+                       <NavTabProjectMgt/>
+                        
+                        <div class="tab-content">
+                            <div class="tab-pane active">
+
+                                <form action="/account/projects/edit/1234/success">
+                                    <div class="b-1-ddd">
+
+                                        <div class="p-20">
+                                            
+                                            <div class="mx-auto mw-600 p-20 b-1-ddd">
+                                                
+                                                <div>
+                                                    <div class="font-bold">
+                                                        Show my project to more sellers
+                                                    </div>
+                                                    <div class="text-fade">
+                                                        This feature is optional. It allows your project to shown more often, to a wider range of potential sellers.
+                                                    </div>
+                                                </div>
+                                                <div class="mt-20">
+                                                    <div class="pull-left mr-10">
+                                                        <span class="fa fa-check-circle icon-green icon-20"></span>
+                                                    </div>
+                                                    <div class="overflow-hidden">
+                                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                                                    </div>
+                                                </div>
+                                                <div class="mt-10">
+                                                    <div class="pull-left mr-10">
+                                                        <span class="fa fa-check-circle icon-green icon-20"></span>
+                                                    </div>
+                                                    <div class="overflow-hidden">
+                                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                                                    </div>
+                                                </div>
+                                                <div class="mt-10">
+                                                    <div class="pull-left mr-10">
+                                                        <span class="fa fa-check-circle icon-green icon-20"></span>
+                                                    </div>
+                                                    <div class="overflow-hidden">
+                                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                                                    </div>
+                                                </div>
+                                            
+                                            </div>
+
+                                            <div class="hidden mx-auto mw-600 mt-20">
+
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <label class="checkbox-inline cursor-pointer d-block">
+                                                            <input type="checkbox" name="" class="mr-10 pull-left"/>
+                                                            <div class="overflow-hidden">
+                                                                Show my project to more sellers
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-sm-6 text-right d-none d-sm-block">
+                                                        <div class="text-blue font-20 font-bold">
+                                                            $3 / month
+                                                        </div>
+                                                        <div class="text-fade text-small">
+                                                            Invoice generated Monthly
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 text-left d-block d-sm-none mt-20">
+                                                        <div class="text-blue font-20 font-bold">
+                                                            $3 / month
+                                                        </div>
+                                                        <div class="text-fade text-small">
+                                                            Invoice generated Monthly
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mt-30">
+                                                    After expiration, your project will no longer be “featured” but it will still be visible to potential sellers accross our platform.
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        
+                                        <div class="p-15 mt-15 bt-1-ddd floated-content">
+                                            <div class="pull-right">
+                                                <a href="/account/projects/edit/1234/requirements" class="btn btn-transparent-black btn-sm icon-left">
+                                                    <span class="fa fa-angle-left"></span>
+                                                    Back
+                                                </a>
+                                                <button type="submit" class="btn btn-blue btn-sm icon-right" onClick= {handleSubmit}>
+                                                    Publish
+                                                    <span class="fa fa-check-circle"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                                <p Style={{display:display}}>category created successfully</p>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+		</>
+		)
+}
+export default ProjectPublish;
